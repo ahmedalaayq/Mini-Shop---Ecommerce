@@ -3,10 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mini_shop/core/theme/app_colors.dart';
 import 'package:mini_shop/core/theme/app_styles.dart';
 
-class DontHaveAccount extends StatelessWidget {
-  const DontHaveAccount({super.key, required this.onJoinTap});
+class AuthFooter extends StatelessWidget {
+  const AuthFooter({super.key, required this.onJoinTap, required this.text, required this.text2});
 
   final VoidCallback onJoinTap;
+  final String text;
+  final String text2;
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +18,14 @@ class DontHaveAccount extends StatelessWidget {
         TextSpan(
           children: [
             TextSpan(
-              text: 'Don’t have an account? ',
+              text: '$text ',
               style: AppStyles.readexPro16Weight400,
             ),
             WidgetSpan(
               child: GestureDetector(
                 onTap: onJoinTap,
                 child: Text(
-                  'Join',
+                  text2,
                   style: AppStyles.readexPro16Weight400.copyWith(
                     color: AppColors.black,
                     decoration: TextDecoration.underline,
