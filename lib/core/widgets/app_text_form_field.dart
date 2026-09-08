@@ -50,6 +50,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autocorrect: false,
       obscureText: obscurePassword,
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       enabled: widget.enabled ?? true,
