@@ -54,6 +54,7 @@ dependencies:
   dio: ^5.11.1
   #  is a Dio interceptor that logs network calls in a pretty, easy to read format
   pretty_dio_logger: ^1.4.0
+  google_fonts: ^8.2.1
 
 
 dev_dependencies:
