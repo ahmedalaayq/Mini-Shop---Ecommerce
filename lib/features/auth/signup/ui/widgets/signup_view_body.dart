@@ -5,22 +5,27 @@ import 'package:mini_shop/core/theme/app_styles.dart';
 import 'package:mini_shop/core/widgets/app_elevated_button.dart';
 import 'package:mini_shop/core/widgets/app_text_form_field.dart';
 
-class LoginViewBody extends StatefulWidget {
-  const LoginViewBody({super.key});
+class SignupViewBody extends StatefulWidget {
+  const SignupViewBody({super.key});
 
   @override
-  State<LoginViewBody> createState() => _LoginViewBodyState();
+  State<SignupViewBody> createState() => _SignupViewBodyState();
 }
 
-class _LoginViewBodyState extends State<LoginViewBody> {
+class _SignupViewBodyState extends State<SignupViewBody> {
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   @override
   void dispose() {
-    super.dispose();
+    _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -31,19 +36,26 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         child: Column(
           crossAxisAlignment: .start,
           children: [
-            Text(
-              'Login to your account',
-              style: AppStyles.readexPro32Weight600,
-            ),
+            Text('Create an account', style: AppStyles.readexPro32Weight600),
             verticalSpace(4),
             Text(
-              'It’s great to see you again.',
+              'Let’s create your account.',
               style: AppStyles.readexPro16Weight400,
             ),
             verticalSpace(24),
             Column(
               crossAxisAlignment: .start,
               children: [
+                Text(
+                  'Full Name',
+                  style: TextStyle(fontSize: 16.sp, fontWeight: .w600),
+                ),
+                verticalSpace(4),
+                AppTextFormField(
+                  hintText: 'Enter your full name',
+                  controller: _nameController,
+                ),
+                verticalSpace(16),
                 Text(
                   'Email',
                   style: TextStyle(fontSize: 16.sp, fontWeight: .w600),
@@ -64,8 +76,20 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   hintText: 'Enter your password',
                   controller: _passwordController,
                 ),
+                verticalSpace(24),
+
+                Text(
+                  'Confirm Password',
+                  style: TextStyle(fontSize: 16.sp, fontWeight: .w600),
+                ),
+                verticalSpace(4),
+                AppTextFormField(
+                  isPassword: true,
+                  hintText: 'Enter your confirm password',
+                  controller: _confirmPasswordController,
+                ),
                 verticalSpace(55),
-                AppElevatedButton(btnText: 'Sign In', onPressed: () {}),
+                AppElevatedButton(btnText: 'Create Account', onPressed: () {}),
               ],
             ),
           ],
