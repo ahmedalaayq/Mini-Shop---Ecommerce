@@ -24,9 +24,9 @@ class NoRouteFoundView extends StatelessWidget {
                 Text(
                   'Page Not Found',
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.primaryBlue,
-                      ),
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.primaryBlue,
+                  ),
                 ),
                 const SizedBox(height: 12),
                 Text(
@@ -37,7 +37,9 @@ class NoRouteFoundView extends StatelessWidget {
                 const SizedBox(height: 32),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pop();
+                    if (Navigator.of(context).canPop()) {
+                      Navigator.of(context).pop();
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primaryBlue,

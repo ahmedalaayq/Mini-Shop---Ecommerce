@@ -10,11 +10,13 @@ class AppElevatedButton extends StatelessWidget {
     this.bgColor,
     this.foregroundColor,
     this.borderRadius,
+    this.child,
   });
   final String btnText;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final Color? bgColor, foregroundColor;
   final double? borderRadius;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +30,12 @@ class AppElevatedButton extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      child: Text(
-        btnText,
-        style: TextStyle(color: Colors.white, fontSize: 14.sp),
-      ),
+      child:
+          child ??
+          Text(
+            btnText,
+            style: TextStyle(color: Colors.white, fontSize: 14.sp),
+          ),
     );
   }
 }

@@ -3,3 +3,5 @@ abstract class Failure {
 
   final String message;
 }
+ class ServerFailure extends Failure {
+  const ServerFailure({required super.message});}
