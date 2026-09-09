@@ -12,7 +12,9 @@ import 'package:mini_shop/mini_shop.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MiniShop());
+    await tester.pumpWidget(const MiniShop(
+      hasSession: false,
+    ));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
