@@ -6,7 +6,8 @@ import 'package:mini_shop/core/routing/router_manager.dart';
 import 'package:mini_shop/core/theme/app_colors.dart';
 
 class MiniShop extends StatelessWidget {
-  const MiniShop({super.key});
+  const MiniShop({super.key, required this.hasSession});
+  final bool hasSession;
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +18,12 @@ class MiniShop extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Mini Shop',
         theme: ThemeData(
-                fontFamily: GoogleFonts.readexPro().fontFamily,
+          fontFamily: GoogleFonts.readexPro().fontFamily,
           scaffoldBackgroundColor: Colors.white,
           primaryColor: AppColors.primaryBlue,
           colorScheme: .fromSeed(seedColor: AppColors.primaryBlue),
         ),
-        initialRoute: AppRoutes.loginView,
+        initialRoute: hasSession ? AppRoutes.signupView : AppRoutes.loginView,
         onGenerateRoute: RoutingManager.onGenerateRoute,
       ),
     );
