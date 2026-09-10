@@ -25,13 +25,3 @@ class CategoryModel {
   Map<String, dynamic> toJson() => _$CategoryModelToJson(this);
 }
 
-/*
- {
-        "id": 1,
-        "name": "Updated Category Name",
-        "slug": "updated-category-name",
-        "image": "https://placeimg.com/640/480/any",
-        "creationAt": "2026-09-10T00:11:03.000Z",
-        "updatedAt": "2026-09-10T18:01:56.000Z"
-    },
- */
