@@ -4,6 +4,7 @@ import 'package:mini_shop/core/helpers/init_core_functions.dart';
 import 'package:mini_shop/core/networking/session_manager_impl.dart';
 
 import 'mini_shop.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initCoreFunctions();
@@ -12,5 +13,5 @@ Future<void> main() async {
 
   final hasSession = await sessionManager.hasSession();
 
-  runApp(MiniShop(hasSession: hasSession));
+  runApp(MiniShop(hasSession: false));
 }

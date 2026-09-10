@@ -16,6 +16,7 @@ class LoginDataSource {
       final response = await _apiService.post(
         endPoint: ApiConstants.login,
         data: loginData.toJson(),
+        requiredAuth: false,
       );
 
       return LoginResponseBody.fromJson(response.data);

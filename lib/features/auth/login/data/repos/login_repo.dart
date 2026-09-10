@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:mini_shop/core/errors/app_exceptions.dart';
 import 'package:mini_shop/core/errors/failure.dart';
@@ -14,7 +16,9 @@ class LoginRepo {
     required LoginRequestBody loginData,
   }) async {
     try {
-      final LoginResponseBody response = await _loginDataSource.login(loginData: loginData);
+      final LoginResponseBody response = await _loginDataSource.login(
+        loginData: loginData,
+      );
       _sessionManager.saveSession(
         accessToken: response.accessToken,
         refreshToken: response.refreshToken,
@@ -23,7 +27,10 @@ class LoginRepo {
     } on ServerException catch (e) {
       return Left(ServerFailure(message: e.message));
     } catch (e) {
-      return Left(ServerFailure(message: e.toString()));
+      log('LoginRepo.final catch part: $e');
+      return Left(
+        ServerFailure(message: 'Somthing wen\'t wrong. please try again.'),
+      );
     }
   }
 }
