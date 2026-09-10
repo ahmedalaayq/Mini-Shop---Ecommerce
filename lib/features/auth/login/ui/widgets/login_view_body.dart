@@ -45,7 +45,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           children: [
             Text(
               'Login to your account',
-              style: AppStyles.readexPro32Weight600,
+              style: AppStyles.readexPro32WeightBold,
             ),
             verticalSpace(4),
             Text(

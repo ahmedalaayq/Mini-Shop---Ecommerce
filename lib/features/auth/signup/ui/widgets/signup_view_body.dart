@@ -57,7 +57,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
         child: Column(
           crossAxisAlignment: .start,
           children: [
-            Text('Create an account', style: AppStyles.readexPro32Weight600),
+            Text('Create an account', style: AppStyles.readexPro32WeightBold),
             verticalSpace(4),
             Text(
               'Let’s create your account.',
