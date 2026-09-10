@@ -54,9 +54,19 @@ class AuthInterceptor extends Interceptor {
 
     try {
       final Response refreshResponse = await dio.post(
-        '/auth/refresh',
-        data: {'refresh_token': refreshToken},
-        options: Options(extra: {'isLoggedIn': false}),
+        '/graphql',
+        data: {
+          'query': '''
+      mutation RefreshToken(\$refreshToken: String!) {
+        refreshToken(refreshToken: \$refreshToken) {
+          access_token
+          refresh_token
+        }
+      }
+    ''',
+          'variables': {'refreshToken': refreshToken},
+        },
+        options: Options(extra: {'requiresAuth': false}),
       );
 
       final data = refreshResponse.data as Map<String, dynamic>;
