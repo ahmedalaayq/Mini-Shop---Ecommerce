@@ -25,12 +25,12 @@ class Helpers {
           content: Container(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
             decoration: BoxDecoration(
-              color: isError ? Color(0xFFED1010) : AppColors.primaryBlue,
+              color: isError ? const Color(0xFFED1010) : AppColors.primaryBlue,
               borderRadius: BorderRadius.circular(16.r),
               boxShadow: [
                 BoxShadow(
                   color: isError
-                      ? Color(0xFFED1010).withValues(alpha: 0.25)
+                      ? const Color(0xFFED1010).withValues(alpha: 0.25)
                       : AppColors.primaryBlue.withValues(alpha: 0.25),
                   blurRadius: 20,
                   offset: const Offset(0, 8),

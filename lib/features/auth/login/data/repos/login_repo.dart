@@ -28,7 +28,7 @@ class LoginRepo {
       return Left(ServerFailure(message: e.message));
     } catch (e) {
       log('LoginRepo.final catch part: $e');
-      return Left(
+      return const Left(
         ServerFailure(message: 'Somthing wen\'t wrong. please try again.'),
       );
     }

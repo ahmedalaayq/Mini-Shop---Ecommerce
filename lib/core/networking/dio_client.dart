@@ -32,7 +32,7 @@ class DioClient {
     dio.interceptors.add(
       AuthInterceptor(
         dio: dio,
-        sessionManager: SessionManagerImpl(storage: FlutterSecureStorage()),
+        sessionManager: SessionManagerImpl(storage: const FlutterSecureStorage()),
       ),
     );
     return dio;

@@ -9,7 +9,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initCoreFunctions();
 
-  final sessionManager = SessionManagerImpl(storage: FlutterSecureStorage());
+  final sessionManager = SessionManagerImpl(storage: const FlutterSecureStorage());
 
   final hasSession = await sessionManager.hasSession();
 

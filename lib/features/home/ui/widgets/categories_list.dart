@@ -37,8 +37,8 @@ class _CatgoriesListState extends State<CatgoriesList> {
                   currentCategory.value = index;
                 },
                 child: AnimatedContainer(
-                  duration: Duration(milliseconds: 500),
-                  margin: .only(right: 16),
+                  duration: const Duration(milliseconds: 500),
+                  margin: const .only(right: 16),
                   padding: .symmetric(horizontal: 20.w, vertical: 7.h),
                   decoration: BoxDecoration(
                     color: isSelected ? AppColors.primaryBlue : Colors.white,

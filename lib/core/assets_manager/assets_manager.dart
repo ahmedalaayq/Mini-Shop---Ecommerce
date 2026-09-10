@@ -6,6 +6,10 @@ class AssetsManager {
   /// assets/images/frame.png
   static const String imagesFrame = "assets/images/frame.png";
 
+  /// Assets for imagesShoesDummy
+  /// assets/images/shoes_dummy.png
+  static const String imagesShoesDummy = "assets/images/shoes_dummy.png";
+
   /// Assets for imagesShopifyIcon
   /// assets/images/shopify_icon.png
   static const String imagesShopifyIcon = "assets/images/shopify_icon.png";

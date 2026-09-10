@@ -21,7 +21,9 @@ class LoginView extends StatelessWidget {
     return BlocProvider(
       create: (_) => LoginCubit(
         loginRepo: LoginRepo(
-          sessionManager: SessionManagerImpl(storage: FlutterSecureStorage()),
+          sessionManager: SessionManagerImpl(
+            storage: const FlutterSecureStorage(),
+          ),
           loginDataSource: LoginDataSource(ApiService()),
         ),
       ),
@@ -38,7 +40,7 @@ class LoginView extends StatelessWidget {
               );
             }
           },
-          child: SafeArea(child: LoginViewBody()),
+          child: const SafeArea(child: LoginViewBody()),
         ),
         bottomNavigationBar: SafeArea(
           child: AuthFooter(

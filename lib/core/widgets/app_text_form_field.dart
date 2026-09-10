@@ -67,8 +67,8 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
                   setState(() {});
                 },
                 icon: !obscurePassword == true
-                    ? Icon(Icons.visibility_off)
-                    : Icon(Icons.visibility),
+                    ? const Icon(Icons.visibility_off)
+                    : const Icon(Icons.visibility),
               )
             : widget.suffixIcon),
         contentPadding:
@@ -78,11 +78,11 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
         hintText: widget.hintText,
         filled: widget.filled ?? true,
         fillColor: widget.fillColor ?? Colors.white,
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
 
         enabledBorder: OutlineInputBorder(
           borderRadius: .circular(10.r),
-          borderSide: BorderSide(color: Color(0xFFE6E6E6), width: 1.0.w),
+          borderSide: BorderSide(color: const Color(0xFFE6E6E6), width: 1.0.w),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: .circular(10.r),
@@ -90,12 +90,12 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: .circular(10.r),
-          borderSide: BorderSide(color: Color(0xFFED1010), width: 1.0.w),
+          borderSide: BorderSide(color: const Color(0xFFED1010), width: 1.0.w),
         ),
 
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: .circular(10.r),
-          borderSide: BorderSide(color: Color(0xFFED1010), width: 1.3.w),
+          borderSide: BorderSide(color: const Color(0xFFED1010), width: 1.3.w),
         ),
       ),
     );
