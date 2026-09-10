@@ -9,7 +9,7 @@ class SignupView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: SignupViewBody()),
+      body: const SafeArea(child: SignupViewBody()),
 
       bottomNavigationBar: SafeArea(
         child: AuthFooter(

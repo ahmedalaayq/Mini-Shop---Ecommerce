@@ -15,7 +15,7 @@ class NoRouteFoundView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
+                const Icon(
                   Icons.route_outlined,
                   size: 100,
                   color: AppColors.primaryBlue,

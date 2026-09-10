@@ -91,7 +91,7 @@ class PasswordStrengthWidget extends StatelessWidget {
                   ),
                   child: Text(
                     strengthText,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.w600,
                       color: AppColors.primaryBlue,

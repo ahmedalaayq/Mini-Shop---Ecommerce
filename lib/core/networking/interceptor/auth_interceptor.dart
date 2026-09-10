@@ -25,22 +25,22 @@ class AuthInterceptor extends Interceptor {
 
   @override
   Future<void> onError(
-    DioException error,
+    DioException err,
     ErrorInterceptorHandler handler,
   ) async {
-    if (error.response?.statusCode != 401) {
-      handler.next(error);
+    if (err.response?.statusCode != 401) {
+      handler.next(err);
       return;
     }
 
-    final responseData = error.response?.data;
+    final responseData = err.response?.data;
 
     final String? message = responseData is Map<String, dynamic>
         ? responseData['message'] as String?
         : null;
 
     if (message != 'Access token expired') {
-      handler.next(error);
+      handler.next(err);
       return;
     }
 
@@ -48,7 +48,7 @@ class AuthInterceptor extends Interceptor {
 
     if (refreshToken == null || refreshToken.isEmpty) {
       await sessionManager.clearSession();
-      handler.next(error);
+      handler.next(err);
       return;
     }
 
@@ -80,7 +80,7 @@ class AuthInterceptor extends Interceptor {
         refreshToken: newRefreshToken,
       );
 
-      final RequestOptions originalRequest = error.requestOptions;
+      final RequestOptions originalRequest = err.requestOptions;
 
       originalRequest.headers['Authorization'] = 'Bearer $newAccessToken';
 
@@ -90,7 +90,7 @@ class AuthInterceptor extends Interceptor {
     } catch (_) {
       await sessionManager.clearSession();
 
-      handler.next(error);
+      handler.next(err);
     }
   }
 }

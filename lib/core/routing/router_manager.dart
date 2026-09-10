@@ -9,13 +9,13 @@ class RoutingManager {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.loginView:
-        return MaterialPageRoute(builder: (_) => LoginView());
+        return MaterialPageRoute(builder: (_) => const LoginView());
       case AppRoutes.signupView:
-        return MaterialPageRoute(builder: (_) => SignupView());
+        return MaterialPageRoute(builder: (_) => const SignupView());
       case AppRoutes.mainView:
-        return MaterialPageRoute(builder: (_) => MainView());
+        return MaterialPageRoute(builder: (_) => const MainView());
       default:
-        return MaterialPageRoute(builder: (_) => NoRouteFoundView());
+        return MaterialPageRoute(builder: (_) => const NoRouteFoundView());
     }
   }
 }
