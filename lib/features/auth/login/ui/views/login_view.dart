@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:mini_shop/core/extensions/navigation_extension.dart';
+import 'package:mini_shop/core/helpers/helpers.dart';
 import 'package:mini_shop/core/networking/api_service.dart';
 import 'package:mini_shop/core/networking/session_manager_impl.dart';
 import 'package:mini_shop/core/routing/app_routes.dart';
@@ -28,9 +29,9 @@ class LoginView extends StatelessWidget {
         body: BlocListener<LoginCubit, LoginState>(
           listener: (context, state) {
             if (state is LoginSuccess) {
-              showModernSnackBar(context, message: 'Logged in Success');
+              Helpers.showModernSnackBar(context, message: 'Logged in Success');
             } else if (state is LoginFailure) {
-              showModernSnackBar(
+              Helpers.showModernSnackBar(
                 context,
                 message: state.errorMessage,
                 isError: true,

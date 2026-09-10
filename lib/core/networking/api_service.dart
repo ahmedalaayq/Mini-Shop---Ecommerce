@@ -8,8 +8,13 @@ class ApiService {
   Future<Response<dynamic>> get({
     required String endPoint,
     Map<String, dynamic>? queryParameters,
+    bool requiredAuth = true,
   }) async {
-    return dio.get(endPoint, queryParameters: queryParameters);
+    return dio.get(
+      endPoint,
+      queryParameters: queryParameters,
+      options: Options(extra: {'requiredAuth': requiredAuth}),
+    );
   }
 
   /// Post
@@ -17,8 +22,14 @@ class ApiService {
     required String endPoint,
     dynamic data,
     Map<String, dynamic>? queryParameters,
+    bool requiredAuth = true,
   }) async {
-    return dio.post(endPoint, queryParameters: queryParameters, data: data);
+    return dio.post(
+      endPoint,
+      queryParameters: queryParameters,
+      data: data,
+      options: Options(extra: {'requiredAuth': requiredAuth}),
+    );
   }
 
   /// Put
@@ -26,8 +37,12 @@ class ApiService {
     required String endPoint,
     dynamic data,
     Map<String, dynamic>? queryParameters,
+        bool requiredAuth = true,
+
   }) async {
-    return dio.put(endPoint, queryParameters: queryParameters, data: data);
+    return dio.put(endPoint, queryParameters: queryParameters, data: data,
+      options: Options(extra: {'requiredAuth': requiredAuth}),
+    );
   }
 
   /// Delete
@@ -35,7 +50,11 @@ class ApiService {
     required String endPoint,
     dynamic data,
     Map<String, dynamic>? queryParameters,
+        bool requiredAuth = true,
+
   }) async {
-    return dio.delete(endPoint, queryParameters: queryParameters, data: data);
+    return dio.delete(endPoint, queryParameters: queryParameters, data: data,
+      options: Options(extra: {'requiredAuth': requiredAuth}),
+    );
   }
 }

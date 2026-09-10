@@ -10,10 +10,14 @@ class AuthInterceptor extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    final String? accessToken = await sessionManager.getAccessToken();
-    if (accessToken != null) {
-      options.headers['Authorization'] = 'Bearer $accessToken';
+    final requiredAuth = options.extra['requiredAuth'] ?? true;
+    if (requiredAuth) {
+      final String? accessToken = await sessionManager.getAccessToken();
+      if (accessToken != null && accessToken.isNotEmpty) {
+        options.headers['Authorization'] = 'Bearer $accessToken';
+      }
     }
+
     handler.next(options);
   }
 }
