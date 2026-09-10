@@ -3,7 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mini_shop/core/theme/app_colors.dart';
 
 class AppStyles {
-  static final TextStyle readexPro32Weight600 = TextStyle(
+  static final TextStyle readexPro32WeightBold = TextStyle(
+    fontSize: 32.sp,
+    fontWeight: .bold,
+  );
+  static final TextStyle readexPro28Weight600 = TextStyle(
     fontSize: 28.sp,
     fontWeight: .w600,
   );
@@ -11,5 +15,11 @@ class AppStyles {
     color: AppColors.grey,
     fontWeight: .w400,
     fontSize: 16.sp,
+  );
+  static TextStyle readexPro12Weight500(Color color) => TextStyle(
+    color: color,
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    height: 1.4,
   );
 }

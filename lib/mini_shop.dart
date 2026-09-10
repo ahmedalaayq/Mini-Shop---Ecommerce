@@ -23,7 +23,7 @@ class MiniShop extends StatelessWidget {
           primaryColor: AppColors.primaryBlue,
           colorScheme: .fromSeed(seedColor: AppColors.primaryBlue),
         ),
-        initialRoute: hasSession ? AppRoutes.signupView : AppRoutes.loginView,
+        initialRoute: hasSession ? AppRoutes.mainView : AppRoutes.loginView,
         onGenerateRoute: RoutingManager.onGenerateRoute,
       ),
     );

@@ -19,7 +19,7 @@ class AppTextFormField extends StatefulWidget {
     this.enabled,
     this.contentPadding,
     this.suffixIcon,
-    this.isPassword = false,
+    this.isPassword = false, this.prefixIcon,
   });
   final String hintText;
   final bool? filled;
@@ -34,6 +34,7 @@ class AppTextFormField extends StatefulWidget {
   final EdgeInsetsGeometry? contentPadding;
   final Icon? suffixIcon;
   final bool isPassword;
+  final Icon? prefixIcon;
 
   @override
   State<AppTextFormField> createState() => _AppTextFormFieldState();
@@ -57,6 +58,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
       controller: widget.controller,
       style: widget.style ?? AppStyles.readexPro16Weight400,
       decoration: InputDecoration(
+        prefixIcon: widget.prefixIcon,
         suffixIcon: (widget.isPassword
             ? IconButton(
                 onPressed: () {
