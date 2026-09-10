@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:mini_shop/core/extensions/app_sizes_extension.dart';
 import 'package:mini_shop/core/helpers/spacing.dart';
 import 'package:mini_shop/core/theme/app_colors.dart';
 import 'package:mini_shop/core/theme/app_styles.dart';
@@ -39,7 +39,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
         child: Column(
           crossAxisAlignment: .start,
           children: [
@@ -48,18 +48,12 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               style: AppStyles.readexPro32WeightBold,
             ),
             verticalSpace(4),
-            Text(
-              'It’s great to see you again.',
-              style: AppStyles.readexPro16Weight400,
-            ),
+            Text('It’s great to see you again.', style: AppStyles.readexPro16),
             verticalSpace(24),
             Column(
               crossAxisAlignment: .start,
               children: [
-                Text(
-                  'Email',
-                  style: TextStyle(fontSize: 16.sp, fontWeight: .w600),
-                ),
+                Text('Email', style: AppStyles.readexPro16),
                 verticalSpace(4),
                 AppTextFormField(
                   hintText: 'Enter your email address',

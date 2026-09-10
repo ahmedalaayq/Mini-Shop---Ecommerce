@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mini_shop/core/extensions/app_sizes_extension.dart';
 import 'package:mini_shop/core/theme/app_colors.dart';
 import 'package:mini_shop/core/theme/app_styles.dart';
 
@@ -51,7 +51,7 @@ class _CatgoriesListState extends State<CatgoriesList> {
                   ),
                   child: Text(
                     category,
-                    style: AppStyles.readexPro16Weight400.copyWith(
+                    style: AppStyles.readexPro16.copyWith(
                       color: isSelected ? Colors.white : AppColors.black,
                       fontWeight: .bold,
                     ),

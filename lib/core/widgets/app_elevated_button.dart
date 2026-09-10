@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mini_shop/core/extensions/app_sizes_extension.dart';
 import 'package:mini_shop/core/theme/app_colors.dart';
 
 class AppElevatedButton extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mini_shop/core/assets_manager/assets_manager.dart';
+import 'package:mini_shop/core/extensions/app_sizes_extension.dart';
 import 'package:mini_shop/core/theme/app_styles.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
@@ -17,7 +17,7 @@ class AppBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 86,
+      height: 86.h,
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: const Color(0xFFE6E6E6)),
@@ -35,7 +35,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                   isSelected: currentIndex == 0,
                   onTap: () => onItemSelected(0),
                 ),
-                const SizedBox(width: 40),
+                SizedBox(width: 40.w),
                 _NavigationItem(
                   unSelectedIcon: AssetsManager.svgsCartIcon,
                   selectedIcon: AssetsManager.svgsCartIcon,
@@ -43,7 +43,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                   isSelected: currentIndex == 1,
                   onTap: () => onItemSelected(1),
                 ),
-                const SizedBox(width: 40),
+                SizedBox(width: 40.w),
                 _NavigationItem(
                   unSelectedIcon: AssetsManager.svgsAccountIcon,
                   selectedIcon: AssetsManager.svgsAccountIcon,
@@ -56,15 +56,16 @@ class AppBottomNavigationBar extends StatelessWidget {
           ),
 
           // iOS Home Indicator
-          Container(
-            height: 27,
-            alignment: Alignment.center,
-            child: Container(
-              width: 134,
-              height: 5,
-              decoration: BoxDecoration(
-                color: const Color(0xFF191919),
-                borderRadius: BorderRadius.circular(100),
+          SizedBox(
+            height: 27.h,
+            child: Center(
+              child: Container(
+                width: 134.w,
+                height: 5.h,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF191919),
+                  borderRadius: BorderRadius.circular(100.r),
+                ),
               ),
             ),
           ),
@@ -91,7 +92,7 @@ class _NavigationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isSelected
+    final Color color = isSelected
         ? const Color(0xFF3669C9)
         : const Color(0xFF999999);
 
@@ -99,7 +100,7 @@ class _NavigationItem extends StatelessWidget {
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
       child: SizedBox(
-        width: 50,
+        width: 50.w,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -107,9 +108,9 @@ class _NavigationItem extends StatelessWidget {
               isSelected ? selectedIcon : unSelectedIcon,
               width: 20.w,
               height: 20.h,
-              colorFilter: .mode(color, .srcIn),
+              colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
             ),
-            const SizedBox(height: 2),
+            SizedBox(height: 2.h),
             Text(label, style: AppStyles.readexPro12Weight500(color)),
           ],
         ),
