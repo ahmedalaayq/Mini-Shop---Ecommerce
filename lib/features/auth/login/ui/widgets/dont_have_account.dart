@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mini_shop/core/extensions/app_sizes_extension.dart';
 import 'package:mini_shop/core/theme/app_colors.dart';
 import 'package:mini_shop/core/theme/app_styles.dart';
 
 class AuthFooter extends StatelessWidget {
-  const AuthFooter({super.key, required this.onJoinTap, required this.text, required this.text2});
+  const AuthFooter({
+    super.key,
+    required this.onJoinTap,
+    required this.text,
+    required this.text2,
+  });
 
   final VoidCallback onJoinTap;
   final String text;
@@ -17,16 +22,13 @@ class AuthFooter extends StatelessWidget {
       child: Text.rich(
         TextSpan(
           children: [
-            TextSpan(
-              text: '$text ',
-              style: AppStyles.readexPro16Weight400,
-            ),
+            TextSpan(text: '$text ', style: AppStyles.readexPro16),
             WidgetSpan(
               child: GestureDetector(
                 onTap: onJoinTap,
                 child: Text(
                   text2,
-                  style: AppStyles.readexPro16Weight400.copyWith(
+                  style: AppStyles.readexPro16.copyWith(
                     color: AppColors.black,
                     decoration: TextDecoration.underline,
                   ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mini_shop/core/extensions/app_sizes_extension.dart';
 import 'package:mini_shop/core/theme/app_colors.dart';
 
 import '../theme/app_styles.dart';
@@ -20,6 +20,7 @@ class AppTextFormField extends StatefulWidget {
     this.contentPadding,
     this.suffixIcon,
     this.isPassword = false,
+    this.prefixIcon,
   });
   final String hintText;
   final bool? filled;
@@ -34,6 +35,7 @@ class AppTextFormField extends StatefulWidget {
   final EdgeInsetsGeometry? contentPadding;
   final Icon? suffixIcon;
   final bool isPassword;
+  final Icon? prefixIcon;
 
   @override
   State<AppTextFormField> createState() => _AppTextFormFieldState();
@@ -55,8 +57,9 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       enabled: widget.enabled ?? true,
       controller: widget.controller,
-      style: widget.style ?? AppStyles.readexPro16Weight400,
+      style: widget.style ?? AppStyles.readexPro16,
       decoration: InputDecoration(
+        prefixIcon: widget.prefixIcon,
         suffixIcon: (widget.isPassword
             ? IconButton(
                 onPressed: () {

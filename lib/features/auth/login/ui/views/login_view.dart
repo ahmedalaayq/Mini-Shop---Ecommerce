@@ -29,7 +29,7 @@ class LoginView extends StatelessWidget {
         body: BlocListener<LoginCubit, LoginState>(
           listener: (context, state) {
             if (state is LoginSuccess) {
-              Helpers.showModernSnackBar(context, message: 'Logged in Success');
+              context.pushNamed(AppRoutes.mainView);
             } else if (state is LoginFailure) {
               Helpers.showModernSnackBar(
                 context,

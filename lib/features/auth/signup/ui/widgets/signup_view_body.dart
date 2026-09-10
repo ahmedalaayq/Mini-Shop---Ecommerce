@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mini_shop/core/extensions/app_sizes_extension.dart';
 import 'package:mini_shop/core/helpers/spacing.dart';
 import 'package:mini_shop/core/theme/app_styles.dart';
 import 'package:mini_shop/core/widgets/app_elevated_button.dart';
@@ -57,12 +57,9 @@ class _SignupViewBodyState extends State<SignupViewBody> {
         child: Column(
           crossAxisAlignment: .start,
           children: [
-            Text('Create an account', style: AppStyles.readexPro32Weight600),
+            Text('Create an account', style: AppStyles.readexPro32WeightBold),
             verticalSpace(4),
-            Text(
-              'Let’s create your account.',
-              style: AppStyles.readexPro16Weight400,
-            ),
+            Text('Let’s create your account.', style: AppStyles.readexPro16),
             verticalSpace(24),
 
             Text(

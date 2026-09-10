@@ -13,5 +13,5 @@ Future<void> main() async {
 
   final hasSession = await sessionManager.hasSession();
 
-  runApp(MiniShop(hasSession: false));
+  runApp(MiniShop(hasSession: hasSession));
 }
