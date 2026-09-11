@@ -35,21 +35,35 @@ class AppBottomNavigationBar extends StatelessWidget {
                   isSelected: currentIndex == 0,
                   onTap: () => onItemSelected(0),
                 ),
-                SizedBox(width: 40.w),
+
+                SizedBox(width: 28.w),
+
+                _NavigationItem(
+                  unSelectedIcon: AssetsManager.svgsFavoriteIcon,
+                  selectedIcon: AssetsManager.svgsFavoriteIcon,
+                  label: 'Favorite',
+                  isSelected: currentIndex == 1,
+                  onTap: () => onItemSelected(1),
+                ),
+
+                SizedBox(width: 28.w),
+
                 _NavigationItem(
                   unSelectedIcon: AssetsManager.svgsCartIcon,
                   selectedIcon: AssetsManager.svgsCartIcon,
                   label: 'Cart',
-                  isSelected: currentIndex == 1,
-                  onTap: () => onItemSelected(1),
+                  isSelected: currentIndex == 2,
+                  onTap: () => onItemSelected(2),
                 ),
-                SizedBox(width: 40.w),
+
+                SizedBox(width: 28.w),
+
                 _NavigationItem(
                   unSelectedIcon: AssetsManager.svgsAccountIcon,
                   selectedIcon: AssetsManager.svgsAccountIcon,
                   label: 'Account',
-                  isSelected: currentIndex == 2,
-                  onTap: () => onItemSelected(2),
+                  isSelected: currentIndex == 3,
+                  onTap: () => onItemSelected(3),
                 ),
               ],
             ),

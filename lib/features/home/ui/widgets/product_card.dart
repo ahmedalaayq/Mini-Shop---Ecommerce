@@ -1,22 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:mini_shop/core/assets_manager/assets_manager.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mini_shop/core/extensions/app_sizes_extension.dart';
 import 'package:mini_shop/core/theme/app_colors.dart';
+import 'package:mini_shop/features/home/logic/cubit/product_cubit/product_cubit.dart';
 
+import '../../data/models/product_model.dart';
 import 'add_button.dart';
 import 'favorite_button.dart';
 
-class ProductCard extends StatelessWidget {
-  const ProductCard({super.key, required this.onTap});
+class ProductCard extends StatefulWidget {
+  const ProductCard({super.key, required this.onTap, required this.product});
 
   final VoidCallback onTap;
+  final ProductModel product;
+
+  @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  ValueNotifier<bool> isFav = ValueNotifier(false);
+
+  @override
+  void initState() {
+    super.initState();
+    isFav = ValueNotifier(widget.product.isFavorite);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: onTap,
+        onTap: widget.onTap,
         borderRadius: BorderRadius.circular(16.r),
         child: Ink(
           decoration: BoxDecoration(
@@ -47,18 +63,31 @@ class ProductCard extends StatelessWidget {
                           child: Padding(
                             padding: EdgeInsets.all(16.r),
                             child: Image.asset(
-                              AssetsManager.imagesShoesDummy,
-                              fit: BoxFit.cover,
+                              widget.product.image,
+                              fit: BoxFit.contain,
                             ),
                           ),
                         ),
                       ),
                     ),
 
-                    Positioned(
-                      top: 10.h,
-                      right: 10.w,
-                      child: FavoriteButton(onTap: () {}),
+                    ValueListenableBuilder<bool>(
+                      valueListenable: isFav,
+                      builder: (context, isFavorite, _) {
+                        return Positioned(
+                          top: 10.h,
+                          right: 10.w,
+                          child: FavoriteButton(
+                            isFavorite: isFavorite,
+                            onTap: (newFavoriteValue) {
+                              isFav.value = newFavoriteValue;
+                              context.read<ProductCubit>().toggleFavorite(
+                                widget.product.id,
+                              );
+                            },
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -74,8 +103,8 @@ class ProductCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Shoes',
-                            maxLines: 1,
+                            widget.product.title,
+                            maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize: 14.sp,
@@ -85,7 +114,7 @@ class ProductCard extends StatelessWidget {
                           ),
                           SizedBox(height: 4.h),
                           Text(
-                            '\$ 1,190',
+                            '\$ ${widget.product.price}',
                             style: TextStyle(
                               fontSize: 17.sp,
                               fontWeight: FontWeight.w700,

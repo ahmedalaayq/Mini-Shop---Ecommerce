@@ -59,6 +59,8 @@ dependencies:
   dartz: ^0.10.1
   flutter_secure_storage: ^11.0.0
   flutter_svg: ^2.3.0
+  cached_network_image: ^4.0.0
+  shared_preferences: ^2.5.5
 
 
 dev_dependencies:
@@ -87,6 +89,7 @@ flutter:
     - .env
     - assets/images/
     - assets/svgs/
+    - assets/images/products/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -117,6 +120,7 @@ flutter_assets:
   assets_path:
     - assets/images/
     - assets/svgs/
+    - assets/images/products/
   output_path: lib/core/assets_manager/
   filename: assets_manager.dart
   field_prefix:
