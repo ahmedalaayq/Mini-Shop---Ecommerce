@@ -7,7 +7,7 @@ import 'package:mini_shop/features/home/logic/cubit/category_cubit/category_cubi
 import 'package:mini_shop/features/home/logic/cubit/product_cubit/product_cubit.dart';
 import 'package:mini_shop/features/home/ui/widgets/home_body.dart';
 
-import '../../favorite_body.dart';
+import '../widgets/favorite_body.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
