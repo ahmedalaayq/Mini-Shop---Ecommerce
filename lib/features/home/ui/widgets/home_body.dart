@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mini_shop/core/extensions/app_sizes_extension.dart';
-import 'package:mini_shop/features/home/logic/cubit/home_cubit.dart';
+import 'package:mini_shop/features/home/logic/cubit/category_cubit/category_cubit.dart';
 
 import 'home_header.dart';
 import 'product_card.dart';
@@ -13,7 +13,7 @@ class HomeBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return RefreshIndicator.adaptive(
       onRefresh: () {
-        return context.read<HomeCubit>().getHomeCategories();
+        return context.read<CategoryCubit>().getAllCategories();
       },
       child: CustomScrollView(
         physics: const BouncingScrollPhysics(),
