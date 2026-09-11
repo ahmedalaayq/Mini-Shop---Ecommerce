@@ -63,7 +63,7 @@ class _HomeHeaderState extends State<HomeHeader> {
             ],
           ),
           verticalSpace(16),
-          const CatgoriesList(),
+          const CategoriesList(),
         ],
       ),
     );
