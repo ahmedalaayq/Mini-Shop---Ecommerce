@@ -5,6 +5,7 @@ import 'package:mini_shop/core/extensions/app_sizes_extension.dart';
 import 'package:mini_shop/core/theme/app_colors.dart';
 import 'package:mini_shop/core/theme/app_styles.dart';
 import 'package:mini_shop/features/home/data/models/category.dart';
+import 'package:mini_shop/features/home/logic/cubit/category_cubit/category_cubit.dart';
 import 'package:mini_shop/features/home/logic/cubit/home_cubit.dart';
 
 class CategoriesList extends StatefulWidget {
@@ -19,9 +20,9 @@ class _CategoriesListState extends State<CategoriesList> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
+    return BlocBuilder<CategoryCubit, CategoryState>(
       builder: (context, state) {
-        if (state is HomeLoading) {
+        if (state is CategoryLoading) {
           return SizedBox(
             height: 40.h,
             child: Center(
@@ -31,7 +32,7 @@ class _CategoriesListState extends State<CategoriesList> {
               ),
             ),
           );
-        } else if (state is HomeCategorySuccess) {
+        } else if (state is CategoryLoaded) {
           return _CategoriesListView(
             categories: state.categories,
             selectedCategoryIndex: selectedCategoryIndex,
