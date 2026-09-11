@@ -4,9 +4,9 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:mini_shop/core/extensions/app_sizes_extension.dart';
 import 'package:mini_shop/core/theme/app_colors.dart';
 import 'package:mini_shop/core/theme/app_styles.dart';
-import 'package:mini_shop/features/home/data/models/category.dart';
+import 'package:mini_shop/features/home/data/models/category_model.dart';
 import 'package:mini_shop/features/home/logic/cubit/category_cubit/category_cubit.dart';
-import 'package:mini_shop/features/home/logic/cubit/home_cubit.dart';
+import 'package:mini_shop/features/home/logic/cubit/product_cubit/product_cubit.dart';
 
 class CategoriesList extends StatefulWidget {
   const CategoriesList({super.key});
@@ -37,6 +37,9 @@ class _CategoriesListState extends State<CategoriesList> {
             categories: state.categories,
             selectedCategoryIndex: selectedCategoryIndex,
             onCategorySelected: (index) {
+              context.read<ProductCubit>().filterProducts(
+                state.categories[index].category,
+              );
               setState(() {
                 selectedCategoryIndex = index;
               });
